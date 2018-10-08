@@ -2,37 +2,18 @@
 <v-flex xs6>
 <v-card>
 <v-list>
-        <v-list-tile
-          v-for="(item, i) in items"
-          :key="i"
-        >
-          <v-list-tile-action>
-            <v-icon v-html="item.icon"></v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"></v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-
-<v-list>
           <v-list-tile
-            v-for="item in items"
-            :key="item.title"
-            avatar
-            @click=""
+            v-for="(item, i) in items"
+            :key="i"
+            @click="showDetails"
           >
             <v-list-tile-action>
-              <v-icon v-if="item.icon" color="pink">star</v-icon>
+              <v-icon v-html="item.icon" color="blue">computer</v-icon>
             </v-list-tile-action>
 
             <v-list-tile-content>
               <v-list-tile-title v-text="item.title"></v-list-tile-title>
             </v-list-tile-content>
-
-            <v-list-tile-avatar>
-              <img :src="item.avatar">
-            </v-list-tile-avatar>
           </v-list-tile>
         </v-list>
 
@@ -42,8 +23,7 @@
 
 <script>
 export default {
-    name: 'Servers'
-,
+    name: 'Servers',
 data () {
     return {
         items: [{
@@ -66,6 +46,11 @@ data () {
             icon: 'computer',
             title: 'Server #5'
         }]
+    }
+},
+methods: {
+    showDetails(e) {
+        console.log(e.target)
     }
 }
 }
